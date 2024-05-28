@@ -1,0 +1,3 @@
+variable "ArtifactPath" {
+    value "D:\\deployment" {}
+}
