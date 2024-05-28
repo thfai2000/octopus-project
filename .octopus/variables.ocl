@@ -1,3 +1,5 @@
 variable "ArtifactPath" {
-    value "D:\\deployment" {}
+    value "D:\\deployment" {
+        environment = ["development", "staging", "production"]
+    }
 }
