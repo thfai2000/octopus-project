@@ -5,6 +5,7 @@ step "hello-world-using-powershell" {
         action_type = "Octopus.Script"
         is_required = true
         properties = {
+            Octopus.Action.EnabledFeatures = "Octopus.Features.SubstituteInFiles"
             Octopus.Action.RunOnServer = "true"
             Octopus.Action.Script.ScriptBody = <<-EOT
                 Write-Host 'Hello world, using PowerShell'
