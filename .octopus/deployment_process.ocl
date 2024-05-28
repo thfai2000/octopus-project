@@ -16,14 +16,15 @@ step "download-file" {
 
 step "hello-world-using-powershell" {
     name = "Hello world (using PowerShell)"
+    package_requirement = "AfterPackageAcquisition"
     properties = {
-        Octopus.Action.MaxParallelism = "1"
         Octopus.Action.TargetRoles = "CMGC-Window"
     }
 
-    action {
+    action "hello-world-using-powershell" {
         action_type = "Octopus.Script"
         is_required = true
+        name = "Hello world (using PowerShell)"
         properties = {
             Octopus.Action.EnabledFeatures = "Octopus.Features.SubstituteInFiles"
             Octopus.Action.RunOnServer = "false"
@@ -38,15 +39,10 @@ step "hello-world-using-powershell" {
             Octopus.Action.Script.Syntax = "PowerShell"
         }
     }
-}
 
-step "run-a-script" {
-    condition = "Always"
-    name = "Run a Script"
-    start_trigger = "StartWithPrevious"
-
-    action {
+    action "run-a-script" {
         action_type = "Octopus.Script"
+        name = "Run a Script"
         properties = {
             Octopus.Action.AutoRetry.MaximumCount = "3"
             Octopus.Action.RunOnServer = "true"
