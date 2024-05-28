@@ -1,3 +1,19 @@
+step "download-file" {
+    name = "Download file"
+
+    action {
+        is_required = true
+        properties = {
+            FilePath = "#{ArtifactPath}"
+            FileUrl = "https://github.com/thfai2000/jenkins-pipelines/releases/download/#{Octopus.Action.Package.PackageVersion}/artifact-#{Octopus.Action.Package.PackageVersion}.zip"
+            Octopus.Action.AutoRetry.MaximumCount = "3"
+            Octopus.Action.RunOnServer = "true"
+            Octopus.Action.Template.Id = "ActionTemplates-2"
+            Octopus.Action.Template.Version = "3"
+        }
+    }
+}
+
 step "hello-world-using-powershell" {
     name = "Hello world (using PowerShell)"
 
@@ -16,22 +32,6 @@ step "hello-world-using-powershell" {
                 EOT
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "PowerShell"
-        }
-    }
-}
-
-step "download-file" {
-    name = "Download file"
-
-    action {
-        is_required = true
-        properties = {
-            FilePath = "#{ArtifactPath}"
-            FileUrl = "https://github.com/thfai2000/jenkins-pipelines/releases/download/#{Octopus.Action.Package.PackageVersion}/artifact-#{Octopus.Action.Package.PackageVersion}.zip"
-            Octopus.Action.AutoRetry.MaximumCount = "3"
-            Octopus.Action.RunOnServer = "true"
-            Octopus.Action.Template.Id = "ActionTemplates-2"
-            Octopus.Action.Template.Version = "3"
         }
     }
 }
