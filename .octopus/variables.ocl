@@ -4,7 +4,7 @@ variable "ArtifactPath" {
     }
 }
 
-variable "service1-artifact-version" {
+variable "Artifacts.Service1.Version" {
     value "1.2.36" {
         description = ""
     }
