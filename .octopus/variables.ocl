@@ -3,3 +3,16 @@ variable "ArtifactPath" {
         environment = ["development", "staging", "production"]
     }
 }
+
+variable "service1-artifact-version" {
+    value {
+        prompt {
+            description = ""
+            display_settings = {
+                Octopus.ControlType = "MultiLineText"
+            }
+            label = ""
+            required = true
+        }
+    }
+}
