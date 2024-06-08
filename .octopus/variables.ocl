@@ -1,11 +1,12 @@
 variable "ArtifactPath" {
     value "D:\\deployment" {
+        description = ""
         environment = ["development", "staging", "production"]
     }
 }
 
 variable "Artifacts.Service1.Version" {
-    value "1.2.36" {
+    value "1.3.0" {
         description = ""
     }
 }
